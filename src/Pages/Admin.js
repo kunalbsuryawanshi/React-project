@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import registrationRecord from "../images/registtrationrecord.jpg";
 import userRecord from "../images/userRecord.jpg";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function Admin() {
   return (
     <>
+     <NavigationBar/>
       <div className="row vh-100 justify-content-center align-items-center">
         <h2 className="text-center mb-0"><span className="bg-danger p-2 text-light rounded-4 shadow">Records</span></h2>
         <div className="col-sm-12 col-md-4 d-flex justify-content-center" style={{marginTop : "-100px"}}>
@@ -40,6 +43,7 @@ function Admin() {
           </Link>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

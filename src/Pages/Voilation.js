@@ -7,9 +7,12 @@ import noParking from "../images/noparking.jpg";
 import fancyPlate1 from "../images/fancyplate1.jpg";
 import otherIncident from "../images/otherincident.jpg";
 import { Link } from "react-router-dom";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function Voilation() {
   return (
     <>
+     <NavigationBar/>
       <div>
         <h3 className="text-center text-success mt-5">
           <span className="text-light bg-danger p-2 rounded-start-3 shadow-lg">
@@ -136,6 +139,7 @@ function Voilation() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

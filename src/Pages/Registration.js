@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 
 function Registration() {
   let [registration, setRegistration] = useState({
@@ -79,6 +81,7 @@ function Registration() {
   };
   return (
     <>
+     <NavigationBar/>
       <div className="row p-2 m-2 justify-content-end rounded-3 align-items-center shadow bg-light">
         <div className="container">
           <h3 className="text-center mt-3">
@@ -240,6 +243,7 @@ function Registration() {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

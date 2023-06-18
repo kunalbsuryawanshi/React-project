@@ -4,6 +4,8 @@ import aboutus7_1 from "../images/aboutus7.1.jpg";
 import aboutus5 from "../images/aboutus5.jpg";
 import aboutus3_1 from "../images/aboutus3.1.jpg";
 import aboutus9_1 from "../images/aboutus9.1.jpg";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaArrowCircleDown, FaArrowDown } from "react-icons/fa";
 function AboutUsBody() {
@@ -11,6 +13,7 @@ function AboutUsBody() {
   let border = { border: "none" };
   return (
     <>
+    <NavigationBar/>
       <h2 class="ms-5 mt-4 mb-0 text-center">
         <span>
           About <span className="text-success">Us</span>
@@ -131,6 +134,7 @@ function AboutUsBody() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

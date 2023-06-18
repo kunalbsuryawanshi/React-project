@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import login1 from "../images/login1.jpg";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   let [signup, setSignup] = useState({
@@ -10,8 +10,8 @@ function Signup() {
     confirmPassword: "",
   });
   let formRef = useRef();
-  let [sucessBox, setSuccessBox] = useState(false);
-  const navigate = useNavigate();
+  let [isSuccess, setIsSuccess] = useState(false);
+  let [isError, setIsError] = useState(false);
 
   let handlerChangeUsername = (e) => {
     let newUser = { ...signup, username: e.target.value };
@@ -34,42 +34,49 @@ function Signup() {
   };
 
   let addUserInformationInDB = async () => {
-    formRef.current.classList.add("was-validated");
+    try {
+      formRef.current.classList.add("was-validated");
+      let formStatus = formRef.current.checkValidity();
+      if (!formStatus) {
+        return;
+      }
+      let url = `http://127.0.0.1:4000/userSignupInfo?username=${signup.username}&email=${signup.email}&createPassword=${signup.createPassword}&confirmPassword=${signup.confirmPassword}`;
 
-    let formStatus = formRef.current.checkValidity();
-    if (!formStatus) {
-      return;
+      let res = await fetch(url);
+      if (res.status != 200) {
+        let serverMsg = await res.text();
+        throw new Error(serverMsg);
+      }
+      let newUser = {
+        username: "",
+        email: "",
+        createPassword: "",
+        confirmPassword: "",
+      };
+      setSignup(newUser);
+
+      formRef.current.classList.remove("was-validated");
+      alert("success");
+      setIsSuccess(true);
+    } catch (err) {
+      alert(err.message);
+      setIsError(true);
+    } finally {
+      setTimeout(() => {
+        setIsSuccess(false);
+        setIsError(false);
+      }, 3000);
     }
-    let url = `http://127.0.0.1:4000/userSignupInfo?username=${signup.username}&email=${signup.email}&createPassword=${signup.createPassword}&confirmPassword=${signup.confirmPassword}`;
-
-    await fetch(url);
-
-    let newUser = {
-      username: "",
-      email: "",
-      createPassword: "",
-      confirmPassword: "",
-    };
-    setSignup(newUser);
-    setSuccessBox(true);
-    setTimeout(() => {
-      setSuccessBox(false);
-    }, 5000);
-
-    formRef.current.classList.remove("was-validated");
-    setTimeout(() => {
-      navigate("/HomeBody");
-    }, 1000);
   };
 
   return (
     <>
-      <div className="container-fluid bg-dark shadow-lg">
-        <img style={{ width: "100%", position: "fixed" }} src={login1} alt="" />
+      <div className="container-fluid bg-dark sticky-top shadow-lg">
+        <img style={{ width: "100%", height: "100%" }} src={login1} alt="" />
       </div>
       <div
-        className="row justify-content-center sticky-top"
-        style={{ marginTop: "500px", height: "600px" }}
+        className="row vh-100 justify-content-center sticky-top"
+        style={{ marginTop: "80px", height: "600px" }}
       >
         <div
           className="col-sm-6 col-md-5 col-lg-3 bg-light-subtle shadow-lg rounded-3"
@@ -132,9 +139,10 @@ function Signup() {
               Sign Up
             </button>
           </div>
-          {sucessBox && (
-            <div className=" text-success text-center">SignUp Successful</div>
+          {isSuccess && (
+            <div className="alert alert-success">Signup Successful</div>
           )}
+          {isError && <div className="alert alert-danger">Invalid Datails</div>}
 
           <p className="text-center text-secondary mt-2 mb-5">
             Already have an account?

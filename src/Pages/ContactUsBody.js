@@ -11,10 +11,13 @@ import {
   FaRegEnvelope,
 } from "react-icons/fa";
 import contactus from "../images/contactus.jpg";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 
 function ContactUsBody() {
   return (
     <>
+     <NavigationBar/>
       <div className="card text-bg-dark">
         <img src={contactus} className="card-img" alt="..." />
         <div className="card-img-overlay">
@@ -138,6 +141,7 @@ function ContactUsBody() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

@@ -1,9 +1,12 @@
 import traffic1 from "../images/traffic1.jpg";
 import traffic2_1 from "../images/traffic2.1.jpg";
 import traffic3_1 from "../images/traffic3.1.jpg";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function TrafficManagement() {
   return (
     <>
+     <NavigationBar/>
       <div className="m-3">
         <div className="card shadow" style={{maxWidth: "900px"}}>
           <div className="row g-0">
@@ -90,6 +93,7 @@ function TrafficManagement() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

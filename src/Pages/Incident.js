@@ -7,9 +7,12 @@ import waterLogging from "../images/waterlogging.jpg";
 import treeFall from "../images/treefall.jpg";
 import otherIncident from "../images/otherincident.jpg";
 import { Link } from "react-router-dom";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function Incident() {
   return (
     <>
+     <NavigationBar/>
       <h3 className="text-center mt-5">
         <span className="text-light bg-danger p-2 rounded-start-3 shadow-lg">
           Incident
@@ -139,6 +142,7 @@ function Incident() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

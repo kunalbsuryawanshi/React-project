@@ -1,9 +1,12 @@
 import voilation from "../images/voilation.jpg";
 import incidentReport from "../images/incidentreport.jpg";
 import { Link } from "react-router-dom";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function Complaint() {
   return (
     <>
+     <NavigationBar/>
       <h3 className="text-center text-success mt-5">
         <span className="text-light bg-danger p-2 rounded-3 shadow">
           Complaint
@@ -41,6 +44,7 @@ function Complaint() {
           </Link>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

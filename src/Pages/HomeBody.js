@@ -3,12 +3,15 @@ import eChallan from "../images/echallan.jpg";
 import awareness from "../images/awareness.jpg"
 import smarTrafficManagement from "../images/smarttrafficmanagement.jpg";
 import { Link } from "react-router-dom";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function HomeBody() {
   // let height = {height : "700px"};
   let textDecoration = { textDecoration: "none" };
   
   return (
     <>
+     <NavigationBar/>
       <div className="row mt-5 shadow ms-2 me-2 justify-content-center align-items-center w-100">
         <div className="col-sm-12 col-md-6 ">
           <img className="w-100" src={frontImg} alt="" />
@@ -95,6 +98,7 @@ function HomeBody() {
       </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

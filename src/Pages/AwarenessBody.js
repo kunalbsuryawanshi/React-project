@@ -3,9 +3,12 @@ import slider1 from "../images/slider1.jpg";
 import slider3 from "../images/slider3.jpg";
 import slider4 from "../images/slider4.jpg";
 import slider6 from "../images/slider6.jpg";
+import NavigationBar from "../NavigationBar";
+import Footer from "../Footer";
 function AwarenessBody() {
   return (
     <>
+     <NavigationBar/>
       <div className="m-3">
         <div className="card shadow" style={{maxWidth: "900px"}}>
           <div className="row g-0">
@@ -134,6 +137,7 @@ function AwarenessBody() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
