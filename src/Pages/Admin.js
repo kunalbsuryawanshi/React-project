@@ -10,7 +10,7 @@ function Admin() {
     <>
      <NavigationBar/>
       <div className="row vh-100 justify-content-center align-items-center">
-        <h2 className="text-center mb-0"><span className="bg-danger p-2 text-light rounded-4 shadow">Records</span></h2>
+        <h2 className="text-center mb-0"><span className="bg-danger p-2 text-light rounded-4 shadow">Complaint Status</span></h2>
         <div className="col-sm-12 col-md-4 d-flex justify-content-center" style={{marginTop : "-100px"}}>
           <Link
             style={{ textDecoration: "none" }}
@@ -20,7 +20,7 @@ function Admin() {
               <Card.Img variant="top" src={registrationRecord} />
               <Card.Body>
                 <Card.Title className="text-center">
-                  Registration <span className="text-danger">Records</span>
+                  Registered <span className="text-danger">Complaint</span>
                 </Card.Title>
               </Card.Body>
             </Card>

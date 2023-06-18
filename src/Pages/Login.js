@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import login2 from "../images/login2.jpg";
 import { Link, useNavigate } from "react-router-dom";
+
 function Login() {
   const navigate = useNavigate();
   let formRef = useRef();
@@ -18,10 +19,12 @@ function Login() {
     let newuser = { ...login, email: e.target.value };
     setLogin(newuser);
   };
+
   let handlerChangePassword = (e) => {
     let newuser = { ...login, password: e.target.value };
     setLogin(newuser);
   };
+
   let addUserLoginInfo = async () => {
     try {
       formRef.current.classList.add("was-validated");
@@ -30,7 +33,7 @@ function Login() {
         return;
       }
 
-      let url = `http://localhost:4000/userLoginInfo?username=${login.username}&email=${login.email}&password=${login.password}&confirmPassword=${login.password}`;
+      let url = `http://localhost:4000/userLogin?username=${login.username}&email=${login.email}&createPassword=${login.password}&confirmPassword=${login.password}`;
       let res = await fetch(url);
 
       if (res.status == 500) {
@@ -41,7 +44,6 @@ function Login() {
       localStorage.setItem("loginStatus", "true");
       navigate("/HomeBody", { replace: true });
     } catch (err) {
-      alert(err.message);
       setIsError(true);
     } finally {
       setTimeout(() => {
@@ -102,17 +104,17 @@ function Login() {
           <div className="d-flex mt-3 justify-content-center">
             <button
               className="form-control w-50 bg-primary shadow-lg rounded-pill"
-              type="btn"
+              type="button"
               onClick={addUserLoginInfo}
             >
               Log In
             </button>
           </div>
           {isSuccess && (
-            <div className="alert alert-success">Login Successful</div>
+            <div className=" text-success text-center">Login Successful</div>
           )}
           {isError && (
-            <div className="alert alert-danger">Incorrect Details</div>
+            <div className=" text-danger text-center">Invalid Username or Password</div>
           )}
           <p className="text-center text-secondary mt-2">
             Don't have an account?

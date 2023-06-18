@@ -43,7 +43,7 @@ function NavigationBar() {
               Complaint
             </Nav.Link>
             <Nav.Link as={Link} to={"/Admin"}>
-              Admin
+              Status
             </Nav.Link>
             <Nav.Link>
               <input

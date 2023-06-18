@@ -26,6 +26,8 @@ import {
   FaVoicemail,
   FaYoutube,
 } from "react-icons/fa";
+import AboutUsBody from "./Pages/AboutUsBody";
+import { Link } from "react-router-dom";
 
 // const element = <FontAwesomeIcon icon={faCoffee} />
 
@@ -50,13 +52,15 @@ function Footer() {
     color: " rgb(26, 26, 97)",
   };
 
-  let logoWidth = { width: "200px"};
+  let logoWidth = { width: "200px" };
 
   return (
     <>
-      <footer className="mt-5 mb-1 shadow w-100 rounded-top-3" style={backgroundColor}>
+      <footer
+        className="mt-5 mb-1 shadow w-100 rounded-top-3"
+        style={backgroundColor}
+      >
         <div className="row justify-content-center ">
-
           <div className="col-sm-12 col-md-2 d-flex align-items-center justify-content-center mb-3">
             <img style={logoWidth} src={logo} alt="" />
           </div>
@@ -64,19 +68,19 @@ function Footer() {
             <ul style={list}>
               <h4>Discover</h4>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link style={footerText} to={"/AboutUsBody"}>
                   <FaArrowAltCircleRight /> About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link style={footerText} to={"/AwarenessBody"}>
                   <FaArrowAltCircleRight /> Awareness Drives
-                </a>
+                </Link>
               </li>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link style={footerText} to={"/TrafficManagement"}>
                   <FaArrowAltCircleRight /> Smart Traffic Management
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -85,14 +89,14 @@ function Footer() {
             <ul style={list}>
               <h4>Information</h4>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link style={footerText} to={"/HomeBody"}>
                   <FaArrowAltCircleRight /> Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link style={footerText} to={"/ContactUsBody"}>
                   <FaArrowAltCircleRight /> Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -101,51 +105,75 @@ function Footer() {
             <ul style={list}>
               <h4>Contact Us</h4>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link
+                  style={footerText}
+                  to={"https://goo.gl/maps/fCuhDSFPkpK9UQ247"}
+                >
                   <FaArrowAltCircleRight /> Mumbai Traffic Police
                   Headquarters,worli, Mumbai
-                </a>
+                </Link>
               </li>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link
+                  style={footerText}
+                  to={
+                    "https://trafficpolicemumbai.maharashtra.gov.in/senior-officer-contacts/"
+                  }
+                >
                   <FaArrowAltCircleRight /> 022-24940303
-                </a>
+                </Link>
               </li>
               <li>
-                <a style={footerText} href="./aboutus.js">
+                <Link
+                  style={footerText}
+                  to={
+                    "https://trafficpolicemumbai.maharashtra.gov.in/senior-officer-contacts/"
+                  }
+                >
                   <FaArrowAltCircleRight /> 8454999999
-                </a>
+                </Link>
               </li>
               <li>
-                <a style={footerText} href="./aboutus.js">
-                  <FaArrowAltCircleRight />{" "}
+                <Link
+                  style={footerText}
+                  to={
+                    "https://trafficpolicemumbai.maharashtra.gov.in/senior-officer-contacts/"
+                  }
+                >
+                  <FaArrowAltCircleRight className="me-1" />
                   cp.mumbai.jtpc.traf@mahapolice.gov.in
-                </a>
+                </Link>
               </li>
             </ul>
-            
+
             <div>
-              <a className=" ms-5 me-5"
+              <Link
+                className=" ms-5 me-5"
                 style={textDecoration}
-                href="https://www.instagram.com/mumbaipolice/?hl=en"
+                to="https://www.instagram.com/mumbaipolice/?hl=en"
               >
                 <FaInstagram />
-              </a>
-              <a className="me-5" style={textDecoration} href="https://twitter.com/MumbaiPolice">
-                <FaTwitter />
-              </a>
-              <a className="me-5"
+              </Link>
+              <Link
+                className="me-5"
                 style={textDecoration}
-                href="https://www.youtube.com/@MumbaiPoliceYoutube"
+                to="https://twitter.com/MumbaiPolice"
+              >
+                <FaTwitter />
+              </Link>
+              <Link
+                className="me-5"
+                style={textDecoration}
+                to="https://www.youtube.com/@MumbaiPoliceYoutube"
               >
                 <FaYoutube />
-              </a>
-              <a
+              </Link>
+              <Link
                 style={textDecoration}
-                href="https://goo.gl/maps/Jn8FRrDApqFemjHh6"
+                to="https://goo.gl/maps/Jn8FRrDApqFemjHh6"
               >
                 <FaMapMarkerAlt />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

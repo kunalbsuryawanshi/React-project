@@ -28,7 +28,9 @@ function UserRecord() {
     <>
       <div className="row justify-content-center vh-100">
         <div className="col-sm-12 col-md-11">
-          <h3 className="text-center m-5">Login <span className="text-success">Records</span></h3>
+          <h3 className="text-center m-5">
+            Login <span className="text-success">Records</span>
+          </h3>
           <table className="table">
             <thead>
               <tr>
@@ -47,8 +49,16 @@ function UserRecord() {
                   <td>*******</td>
                   <td>{item.email}</td>
                   <td className="fs-5">
-                    <input type="button" value="&#x270E;" /> /
-                    <input type="button" value="&#128686;" />
+                    <input
+                      className="btn btn-warning rounded-3 me-2 shadow"
+                      type="button"
+                      value="&#x270E;"
+                    />
+                    <input
+                      className="btn btn-danger rounded-3 me-2 shadow"
+                      type="button"
+                      value="&#128465;"
+                    />
                   </td>
                 </tr>
               ))}

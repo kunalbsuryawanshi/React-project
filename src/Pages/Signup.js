@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import login1 from "../images/login1.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function Signup() {
   let [signup, setSignup] = useState({
@@ -12,6 +12,8 @@ function Signup() {
   let formRef = useRef();
   let [isSuccess, setIsSuccess] = useState(false);
   let [isError, setIsError] = useState(false);
+
+  const navigate = useNavigate();
 
   let handlerChangeUsername = (e) => {
     let newUser = { ...signup, username: e.target.value };
@@ -56,16 +58,17 @@ function Signup() {
       setSignup(newUser);
 
       formRef.current.classList.remove("was-validated");
-      alert("success");
       setIsSuccess(true);
     } catch (err) {
-      alert(err.message);
       setIsError(true);
     } finally {
       setTimeout(() => {
         setIsSuccess(false);
         setIsError(false);
-      }, 3000);
+        navigate("/HomeBody", { replace: true });
+      }, 1000);
+      if (isSuccess) {
+      }
     }
   };
 
@@ -92,6 +95,7 @@ function Signup() {
               onChange={handlerChangeUsername}
               value={signup.username}
               minLength={4}
+              maxLength={16}
               required
             />
 
@@ -140,9 +144,11 @@ function Signup() {
             </button>
           </div>
           {isSuccess && (
-            <div className="alert alert-success">Signup Successful</div>
+            <div className=" text-success text-center">Signup Successful</div>
           )}
-          {isError && <div className="alert alert-danger">Invalid Datails</div>}
+          {isError && (
+            <div className=" text-danger text-center">Invalid Datails</div>
+          )}
 
           <p className="text-center text-secondary mt-2 mb-5">
             Already have an account?

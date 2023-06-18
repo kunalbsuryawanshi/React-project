@@ -76,7 +76,7 @@ function Registration() {
     setTimeout(() => {
       setSuccessBox(false);
     }, 5000);
-
+    alert("Complaint Registered");
     formRef.current.classList.remove("was-validated");
   };
   return (

@@ -20,7 +20,7 @@ function Home() {
       <BrowserRouter>
         <Routes>
           {/** 1 Route means 1 Page */}
-          <Route path="/" element={<h1></h1>} />
+          <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
 
           {/** Private Needs Protection */}
@@ -56,11 +56,46 @@ function Home() {
               </ProtectedRoute>
             }
           />
-          <Route path="/Admin" element={<Admin />} />
-          <Route path="/AwarenessBody" element={<AwarenessBody />} />
-          <Route path="/TrafficManagement" element={<TrafficManagement />} />
-          <Route path="/Voilation" element={<Voilation />} />
-          <Route path="/Incident" element={<Incident />} />
+          <Route
+            path="/Admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AwarenessBody"
+            element={
+              <ProtectedRoute>
+                <AwarenessBody />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/TrafficManagement"
+            element={
+              <ProtectedRoute>
+                <TrafficManagement />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Voilation"
+            element={
+              <ProtectedRoute>
+                <Voilation />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Incident"
+            element={
+              <ProtectedRoute>
+                <Incident />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/Signup" element={<Signup />} />
           <Route
             path="/Registration"
