@@ -4,10 +4,11 @@ import aboutus7_1 from "../images/aboutus7.1.jpg";
 import aboutus5 from "../images/aboutus5.jpg";
 import aboutus3_1 from "../images/aboutus3.1.jpg";
 import aboutus9_1 from "../images/aboutus9.1.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaArrowCircleDown, FaArrowDown } from "react-icons/fa";
 function AboutUsBody() {
   let textAlign = { textAlign: "justify" };
   let border = { border: "none" };
-  let fontSize = { fontSize: "500px" };
   return (
     <>
       <h2 class="ms-5 mt-4 mb-0 text-center">
@@ -83,10 +84,7 @@ function AboutUsBody() {
       </div>
       <div className="row mt-5">
         <div className="col-sm-12 col-md-12 d-flex justify-content-center">
-          <i
-            style={fontSize}
-            className="fa-sharp fa-solid fa-arrow-down text-success"
-          ></i>
+          <FaArrowDown className="fs-1 text-success" />
         </div>
       </div>
       <div className="row mt-5 justify-content-center">

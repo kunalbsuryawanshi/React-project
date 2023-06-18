@@ -13,6 +13,8 @@ import Voilation from "./Pages/Voilation";
 import TrafficManagement from "./Pages/TrafficManagement";
 import Registration from "./Pages/Registration";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegistrationRecord from "./Pages/RegistrationRecord";
+import UserRecord from "./Pages/UserRecord";
 
 function Home() {
   return (
@@ -32,6 +34,9 @@ function Home() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Registration" element={<Registration />} />
+          <Route path="/RegistrationRecord" element={<RegistrationRecord />} />
+          <Route path="/UserRecord" element={<UserRecord />} />
+          <Route path="/Admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
       <Footer />

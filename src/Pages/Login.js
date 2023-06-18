@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import login2 from "../images/login2.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Login() {
   let [login, setLogin] = useState({ username: "", email: "", password: "" });
+  let formRef = useRef();
+  let [sucessBox, setSuccessBox] = useState(false);
+  const navigate = useNavigate();
 
   let handlerChangeUsername = (e) => {
     let newuser = { ...login, username: e.target.value };
@@ -18,6 +21,12 @@ function Login() {
     setLogin(newuser);
   };
   let addUserLoginInfo = async () => {
+    formRef.current.classList.add("was-validated");
+
+    let formStatus = formRef.current.checkValidity();
+    if (!formStatus) {
+      return;
+    }
     let url = `http://localhost:4000/userLoginInfo?username=${login.username}&email=${login.email}&password=${login.password}`;
     await fetch(url);
 
@@ -27,8 +36,17 @@ function Login() {
       password: "",
     };
     setLogin(newUser);
+    setSuccessBox(true);
+    setTimeout(() => {
+      setSuccessBox(false);
+    }, 5000);
+
+    formRef.current.classList.remove("was-validated");
+    setTimeout(() => {
+      navigate("/HomeBody");
+    }, 1000);
   };
-  
+
   return (
     <>
       <div className="container-fluid bg-dark shadow-lg d-flex justify-content-center">
@@ -43,7 +61,7 @@ function Login() {
           style={{ marginTop: "180px", height: "400px" }}
         >
           <h3 className="text-center text-primary my-5">Log In</h3>
-          <form onsubmit="return validation()" action="./home.html">
+          <form ref={formRef} className="needs-validation " novalidate>
             <input
               id="username"
               className="form-control shadow-sm my-2"
@@ -51,6 +69,7 @@ function Login() {
               placeholder="Username . . ."
               onChange={handlerChangeUsername}
               value={login.username}
+              required
             />
 
             <input
@@ -60,6 +79,8 @@ function Login() {
               placeholder="Email . . ."
               onChange={handlerChangeEmail}
               value={login.email}
+              pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"
+              required
             />
 
             <input
@@ -69,18 +90,22 @@ function Login() {
               placeholder="password . . ."
               onChange={handlerChangePassword}
               value={login.password}
+              required
             />
-
-            <div className="d-flex mt-3 justify-content-center">
-              <button
-                className="form-control w-50 bg-primary shadow-lg rounded-pill"
-                type="btn"
-                onClick={addUserLoginInfo}
-              >
-                Log In
-              </button>
-            </div>
           </form>
+
+          <div className="d-flex mt-3 justify-content-center">
+            <button
+              className="form-control w-50 bg-primary shadow-lg rounded-pill"
+              type="btn"
+              onClick={addUserLoginInfo}
+            >
+              Log In
+            </button>
+          </div>
+          {sucessBox && (
+            <div className=" text-success text-center">LogIn Successful</div>
+          )}
           <p className="text-center text-secondary mt-2">
             Don't have an account?
             <Link
