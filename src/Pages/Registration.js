@@ -81,7 +81,7 @@ function Registration() {
   };
   return (
     <>
-     <NavigationBar/>
+      <NavigationBar />
       <div className="row p-2 m-2 justify-content-end rounded-3 align-items-center shadow bg-light">
         <div className="container">
           <h3 className="text-center mt-3">
@@ -176,17 +176,7 @@ function Registration() {
                 </div>
               </div>
 
-              <div className="row justify-content-center align-items-center">
-                <div className="col-sm-12 col-md-4">
-                  <input
-                    id="formFile"
-                    className="form-control my-1 shadow-sm"
-                    type="file"
-                    placeholder="upload picture . . ."
-                  />
-                </div>
-
-                <div className="invalid-feedback ms-2">Upload Image</div>
+              <div className="row justify-content-start align-items-center">
                 <div className="col-sm-12 col-md-4">
                   <input
                     id="location"
@@ -243,7 +233,7 @@ function Registration() {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

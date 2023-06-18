@@ -14,10 +14,6 @@ function RegistrationRecord() {
     setRegistrationRecord([...list]);
   };
 
-  let editRegistrationRecord = (e) => {
-    
-  }
-
   return (
     <>
       <div className="row justify-content-center vh-100">
@@ -49,7 +45,6 @@ function RegistrationRecord() {
                       className="btn btn-warning rounded-3 me-2 shadow"
                       type="button"
                       value="&#x270E;"
-                      onClick={editRegistrationRecord(this)}
                     />
                     <input
                       className="btn btn-danger rounded-3 me-2 shadow"

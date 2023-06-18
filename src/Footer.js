@@ -41,7 +41,7 @@ function Footer() {
   let footerText = {
     textDecoration: "none",
     fontSize: "15px",
-    color: " rgb(26, 26, 97)",
+    color: "rgb(81,77,80)",
     textAlign: "justify",
   };
 
@@ -56,8 +56,9 @@ function Footer() {
 
   return (
     <>
+    <div className="vh-100 d-flex align-items-end">
       <footer
-        className="mt-5 mb-1 shadow w-100 rounded-top-3"
+        className="mt-5 mb-1 shadow w-100 rounded-top-3 "
         style={backgroundColor}
       >
         <div className="row justify-content-center ">
@@ -178,6 +179,7 @@ function Footer() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

@@ -13,6 +13,7 @@ import Registration from "./Pages/Registration";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import RegistrationRecord from "./Pages/RegistrationRecord";
 import UserRecord from "./Pages/UserRecord";
+import Advisory from "./Pages/Advisory";
 
 function Home() {
   return (
@@ -130,6 +131,7 @@ function Home() {
             }
           />
           <Route path="*" element={<h1>Page Not Found</h1>} />
+          <Route path="/Advisory" element={<Advisory />} />
         </Routes>
       </BrowserRouter>
     </>
