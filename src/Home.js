@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import NavigationBar from "./NavigationBar";
 import Footer from "./Footer";
 import HomeBody from "./Pages/HomeBody";
 import ContactUsBody from "./Pages/ContactUsBody";
@@ -20,7 +20,7 @@ function Home() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <NavigationBar />
         <Routes>
           <Route path="/HomeBody" element={<HomeBody />} />
           <Route path="/ContactUsBody" element={<ContactUsBody />} />
